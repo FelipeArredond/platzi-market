@@ -1,7 +1,7 @@
 package com.springplatzi.springplatzi.domain.service;
 
+import com.springplatzi.springplatzi.domain.PurchaseItem;
 import com.springplatzi.springplatzi.domain.repository.ProductRepository;
-import com.springplatzi.springplatzi.persistence.ProductoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,19 +13,19 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
-    public List<Product> getAll() {
+    public List<PurchaseItem.Product> getAll() {
         return productRepository.getAll();
     }
 
-    public Optional<Product> getProduct(int productId) {
+    public Optional<PurchaseItem.Product> getProduct(int productId) {
         return productRepository.getProduct(productId);
     }
 
-    public Optional<List<Product>> getByCategory(int categoryId) {
+    public Optional<List<PurchaseItem.Product>> getByCategory(int categoryId) {
         return productRepository.getByCategory(categoryId);
     }
 
-    public Product save(Product product) {
+    public PurchaseItem.Product save(PurchaseItem.Product product) {
         return productRepository.save(product);
     }
 

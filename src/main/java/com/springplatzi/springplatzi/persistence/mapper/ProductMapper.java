@@ -1,12 +1,11 @@
 package com.springplatzi.springplatzi.persistence.mapper;
 
-import com.springplatzi.springplatzi.domain.service.Product;
+import com.springplatzi.springplatzi.domain.PurchaseItem;
 import com.springplatzi.springplatzi.persistence.entity.Producto;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
-import org.springframework.context.annotation.Bean;
 
 import java.util.List;
 @Mapper(componentModel = "spring", uses = {CategoryMapper.class})
@@ -20,10 +19,10 @@ public interface ProductMapper {
             @Mapping(source = "estado", target = "active"),
             @Mapping(source = "categoria", target = "category"),
     })
-    Product toProduct(Producto producto);
-    List<Product> toProducts(List<Producto> productos);
+    PurchaseItem.Product toProduct(Producto producto);
+    List<PurchaseItem.Product> toProducts(List<Producto> productos);
 
     @InheritInverseConfiguration
     @Mapping(target = "codigoBarras", ignore = true)
-    Producto toProducto(Product product);
+    Producto toProducto(PurchaseItem.Product product);
 }

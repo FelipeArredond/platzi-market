@@ -1,6 +1,6 @@
 package com.springplatzi.springplatzi.persistence.mapper;
 
-import com.springplatzi.springplatzi.domain.service.Category;
+import com.springplatzi.springplatzi.domain.PurchaseItem;
 import com.springplatzi.springplatzi.persistence.entity.Categoria;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
@@ -14,9 +14,9 @@ public interface CategoryMapper {
             @Mapping(source = "descripcion", target = "category"),
             @Mapping(source = "estado", target = "active")
     })
-    Category toCategory(Categoria categoria);
+    PurchaseItem.Category toCategory(Categoria categoria);
 
     @InheritInverseConfiguration
     @Mapping(target = "productos", ignore = true)
-    Categoria toCategoria(Category category);
+    Categoria toCategoria(PurchaseItem.Category category);
 }
